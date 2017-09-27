@@ -1,6 +1,6 @@
 ---
 title: Hexo 新手总结
-time: 2017-09-27 23:27:13
+date: '2017/05/18 23:27:13'
 categories:
   - Hexo
 tags:
@@ -40,25 +40,4 @@ tags:
    ```
 
 4. 所有的更新都要在 gh-pages branch 上完成。
-
-5. 添加新界面:
-
-```
-$ cd your-hexo-site
-$ hexo new page tags
-```
-
-然后确认 tags page 的 yaml 头是否是如下,如果不是改成这样
-
-fileName: source/tags/index.md
-
-```
----
-title:
-date: 2017-02-17 17:19:25
-type: "tags"
----
-```
-
-
 
