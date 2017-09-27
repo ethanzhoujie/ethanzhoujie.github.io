@@ -1,6 +1,6 @@
 ---
 title: Hexo 新手总结
-time: '2017/05/18 23:27:13'
+date: '2017/05/18 23:27:13'
 categories:
   - Hexo
 tags:
