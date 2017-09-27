@@ -87,7 +87,7 @@ scheme: Muse
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
   GitHub: https://github.com/ethanzhoujie || github
-  E-Mail: mailto:ethan.zhoujie@gmail.com || envelope
+  Email: mailto:ethan.zhoujie@gmail.com || envelope
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
@@ -97,10 +97,14 @@ social:
   #Instagram: https://instagram.com/yourname || instagram
   #Skype: skype:yourname?call|chat || skype
 
+# Icon Mappings.
+# KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
 social_icons:
   enable: true
   icons_only: false
-  transition: false
+  transition: true
+  # GitHub: github
+  # Email: envelope
 
 # Blog rolls
 #links_title: Links
