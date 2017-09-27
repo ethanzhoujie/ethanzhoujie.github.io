@@ -52,8 +52,8 @@ index_with_subtitle: false
 menu:
   home: / || home
   archives: /archives/ || archive
-  categories: /categories/ || th
-  tags: /tags/ || tags
+  # categories: /categories/ || th
+  # tags: /tags/ || tags
   bookmarks: /bookmarks/ || bookmark
   about: /about/ || user
   #schedule: /schedule/ || calendar
