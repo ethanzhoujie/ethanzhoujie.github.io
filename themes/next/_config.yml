@@ -53,7 +53,7 @@ menu:
   home: / || home
   archives: /archives/ || archive
   # categories: /categories/ || th
-  tags: /tags/ || tags
+  # tags: /tags/ || tags
   bookmarks: /bookmarks/ || bookmark
   about: /about/ || user
   #schedule: /schedule/ || calendar
