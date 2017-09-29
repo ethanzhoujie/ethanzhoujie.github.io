@@ -9,7 +9,7 @@ Blog
 
 Tool
 
-2. [有意思的技能图谱](http://skill-map.stuq.org/)
+1. [有意思的技能图谱](http://skill-map.stuq.org/)
 
 Book
 
