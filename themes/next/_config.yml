@@ -53,7 +53,7 @@ menu:
   home: / || home
   archives: /archives/ || archive
   # categories: /categories/ || th
-  # tags: /tags/ || tags
+  tags: /tags/ || tags
   bookmarks: /bookmarks/ || bookmark
   about: /about/ || user
   #schedule: /schedule/ || calendar
@@ -110,8 +110,8 @@ social_icons:
 #links_title: Links
 #links_layout: block
 #links_layout: inline
-#links:
-  #Title: http://example.com/
+links:
+  Phodal: https://www.phodal.com/
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
