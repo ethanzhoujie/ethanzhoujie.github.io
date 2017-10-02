@@ -13,7 +13,8 @@ Tool
 
 Book
 
-1. [我的职业是前端工程师](http://ued.party/#我要成为一个前端设计师)
+1. <[我的职业是前端工程师](http://ued.party/#我要成为一个前端设计师)>
+2. <[Growth: 全栈增长工程师指南](http://growth.phodal.com/)>
 
 
 // todo
