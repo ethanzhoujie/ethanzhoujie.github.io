@@ -6,6 +6,7 @@ date: 2017-09-27 00:31:48
 Blog
 
 1. [phodal](https://www.phodal.com/) blog
+2. [todd](https://toddmotto.com/)
 
 Tool
 
