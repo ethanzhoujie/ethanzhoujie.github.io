@@ -1,9 +1,12 @@
 ---
-title: IIFE 浅析
+title: IIFE 学习总结
 date: 2018-08-03 23:58:04
+categories:
+  - Javascript
 tags:
+  - IIFE
 ---
-# IIFE学习总结
+# IIFE 学习总结
 
 由于在实践过程中看到了两种 JavaScript 的写法，由此使我想更深一步的了解 IIFE 的定义及用法。在此看到了一篇好文及它的译文 [Immediately-Invoked Function Expression (IIFE)](http://benalman.com/news/2010/11/immediately-invoked-function-expression/#iife) [JavaScript：立即执行函数表达式（IIFE）](https://segmentfault.com/a/1190000003985390)
 
