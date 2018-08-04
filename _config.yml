@@ -84,7 +84,7 @@ deploy:
   branch: master
 
 # Automatically Excerpt. Not recommand.
-## Please use <!-- more --> in the post to control excerpt accurately.
+## Please use <!-- more --> in the post to control excerpt accurately. This config won't work, see _config.yml in themes/next
 auto_excerpt:
   enable: true
   length: 150
