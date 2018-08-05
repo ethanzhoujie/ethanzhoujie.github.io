@@ -8,25 +8,21 @@ tags:
 ---
 # IIFE 学习总结
 
-由于在实践过程中看到了两种 JavaScript 的写法，由此使我想更深一步的了解 IIFE 的定义及用法。在此看到了一篇好文及它的译文 [Immediately-Invoked Function Expression (IIFE)](http://benalman.com/news/2010/11/immediately-invoked-function-expression/#iife) [JavaScript：立即执行函数表达式（IIFE）](https://segmentfault.com/a/1190000003985390)
+由于在实践过程中看到了两种 JavaScript 的写法，由此使我想更深一步的了解 IIFE 的定义及用法。在此看到了一篇好文 [Immediately-Invoked Function Expression (IIFE)](http://benalman.com/news/2010/11/immediately-invoked-function-expression/#iife) 及它的译文 [JavaScript：立即执行函数表达式（IIFE）](https://segmentfault.com/a/1190000003985390)
 
 ```javascript
 (function() {
-
-	......
-
+	// code
 }())
 ```
 
 ```javascript
 (function() {
-
-	......
-
+	// code
 }())
 ```
 
-当我看到这两种写法的时候，脑中疑问为什么要写成这种写法，尤其的在一个 JS file 的开头，把所有 code 全部写在了这种结构中。
+当我看到这两种写法的时候，脑中疑问为什么要写成这种写法，尤其的在一个 JavaScript file 的开头，把所有 code 全部写在了这种结构中。
 
 ## 什么是 IIFE
 
@@ -34,7 +30,7 @@ tags:
 
 所以在函数里创建的变量和函数是只能被函数内部访问的，函数外部是不能访问函数内部声明的变量和函数的。
 
-在函数执行过程中，函数内部声明的变量会保存在内存中，当函数执行结束后，这些变量会被释放。
+在函数执行过程中，函数内部声明的变量会保存在内存中，当函数执行结束后，这些变量会被删除，内存会被释放。
 
 ```javascript
 function makeCounter() {
@@ -72,42 +68,48 @@ i; // Uncaught ReferenceError: i is not defined
 ```javascript
 // 下面两种定义的函数可以通过在函数名后加一对括号进行调用
 // foo 相对于函数表达式 function(){} 只是一个引用变量
-let foo = function(){......} or function foo(){......}
+let foo = function(){...} or function foo(){...}
 foo();
 
 // 那么可以说明函数表达式可以通过在其后边加上一对括号自己调用自己吗？
 function(){......}(); // Unexpected token (
 ```
 
-如果这么使用，这里会抛出一个错误。当圆括号为了调用函数出现在函数后面时，无论在全局环境或者局部环境里遇到这样的 `function` 关键字，默认的，他会将它当做是一个函数声明，而不是函数表达式，如果你不明确地告诉圆括号它是一个表达式，它会将其当作没有名字的函数声明并且抛出一个错误，因为函数声明需要一个名字。
+如果这么使用，这里会抛出一个错误。
+
+当圆括号为了调用函数出现在函数后面时，无论在全局环境或者局部环境里遇到这样的 `function` 关键字，默认的，他会将它当做是一个函数声明，而不是函数表达式。如果你不明确地告诉圆括号它是一个表达式，它会将其当作没有名字的函数声明并且抛出一个错误，因为函数声明需要一个名字。
 
 ```javascript
-let foo = function(){console.log(1)}();
+// 即使这样调用，同样会抛出错误，下面会说明原因
+function foo(){...}() // Uncaught SyntaxError: Unexpected token )
+
 // 这样调用函数是可以的
+let foo = function(){console.log(1)}();
 ```
 
 ## 函数，圆括号，错误
 
-但是，如果你为一个函数指定一个名字并且在它后面放一对圆括号，同样抛出错误，但这次是因为另外一个原因。当圆括号放在一个函数表达式后面指明了这是一个被调用的函数，而圆括号放在一个声明后面便意味着完全的和全面的函数名声分开了，此时圆括号只是一个简单的代表一个括号（用来控制运算优先的括号）。
+但是，如果你为一个函数指定一个名字并且在它后面放一对圆括号，同样抛出错误，但这次是因为另外一个原因。当圆括号放在一个函数表达式后面指明了这是一个被调用的函数，而圆括号放在一个声明后面便意味着完全的和前面的函数名称分开了，此时圆括号只是一个简单的代表一个括号（用来控制运算优先的括号）。
 
 ```javascript
 // 然而函数声明语法上是无效的，它仍然是一个声明，紧跟着的圆括号是无效的，因为圆括号里需要包含表达式
-
 function foo(){ /* code */ }();//SyntaxError: Unexpected token
 
 // 现在，你把一个表达式放在圆括号里，没有抛出错误...,但是函数也并没有执行，因为：
-
 function foo(){/* code */}(1)
 
 // 它等同于如下，一个函数声明跟着一个完全没有关系的表达式:
-
 function foo(){/* code */}
 (1);
 ```
 
 ## 立即执行函数表达式（IIFE）
 
-幸运的是，修正语法错误很简单。最流行的也最被接受的方法是将函数声明包裹在圆括号里来告诉语法分析器去表达一个函数表达式，因为在Javascript里，圆括号不能**包含**声明。因为这点，当圆括号为了包裹函数碰上了 `function`关键词，它便知道将它作为一个函数表达式去解析而不是函数声明。**注意理解**这里的圆括号和上面的圆括号遇到函数时的表现是不一样的，也就是说。
+幸运的是，修正语法错误很简单。
+
+最流行的也最被接受的方法是**将函数声明包裹在圆括号里来告诉语法分析器去表达一个函数表达式**，因为在JavaScript里，圆括号不能**包含**声明。
+
+因为这点，当圆括号为了包裹函数碰上了 `function`关键词，它便知道将它作为一个函数表达式去解析而不是函数声明。**注意理解**这里的圆括号和上面的圆括号遇到函数时的表现是不一样的，也就是说。
 
 - 当圆括号出现在匿名函数的末尾想要调用函数时，它会默认将函数当成是函数声明。
 - 当圆括号包裹函数时，它会默认将函数作为表达式去解析，而不是函数声明。
@@ -115,8 +117,11 @@ function foo(){/* code */}
 ```javascript
 // 这两种模式都可以被用来立即调用一个函数表达式，利用函数的执行来创造私有变量
 
-(function(){/* code */}());//Crockford recommends this one，括号内的表达式代表函数立即调用表达式
-(function(){/* code */})();//But this one works just as well，括号内的表达式代表函数表达式
+// Crockford recommends this one，括号内的表达式代表函数立即调用表达式
+(function(){/* code */}());
+
+//But this one works just as well，括号内的表达式代表函数表达式
+(function(){/* code */})();
 
 // Because the point of the parens or coercing operators is to disambiguate
 // between function expressions and function declarations, they can be
@@ -210,33 +215,26 @@ for ( var i = 0; i < elems.length; i++ ) {
 
 ```javascript
 // 下面是个自执行函数，递归的调用自己本身
-
 function foo(){foo();};
 
 // 这是一个自执行匿名函数。因为它没有标识符，它必须是使用`arguments.callee`属性来调用它自己
-
 var foo = function(){arguments.callee();};
 
 // 这也许算是一个自执行匿名函数，但是仅仅当`foo`标识符作为它的引用时，如果你将它换成用`foo`来调用同样可行
-
 var foo = function(){foo();};
 
 // 有些人像这样叫'self-executing anonymous function'下面的函数,即使它不是自执行的，因为它并没有调用它自己。然后，它只是被立即调用了而已。
-
 (function(){ /*code*/ }());
 
 // 为函数表达式增加标识符(也就是说创造一个命名函数)对我们的调试会有很大帮助。一旦命名，函数将不再匿名。
-
 (function foo(){/* code */}());
 
 // IIFEs同样也可以自执行，尽管，也许他不是最有用的模式
-
 (function(){arguments.callee();}())
 (function foo(){foo();}())
 
 // One last thing to note: this will cause an error in BlackBerry 5, because
 // inside a named function expression, that name is undefined. Awesome, huh?
-
 (function foo(){ foo(); }());
 ```
 
@@ -244,7 +242,9 @@ var foo = function(){foo();};
 
 ## 最后：模块模式
 
-当我调用函数表达式时，如果我不至少一次的提醒我自己关于模块模式，我便很可能会忽略它。如果你并不属性 JavaScript 里的模块模式，它和我下面的例子很像，但是返回值用对象代替了函数。
+当我调用函数表达式时，如果我不至少一次的提醒我自己关于模块模式，我便很可能会忽略它。
+
+如果你并不熟悉 JavaScript 里的模块模式，它和我下面的例子很像，但是返回值用对象代替了函数。
 
 ```javascript
 var counter = (function(){
