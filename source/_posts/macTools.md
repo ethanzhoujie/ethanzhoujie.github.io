@@ -9,3 +9,9 @@ tags:
 
 # 常用 MacBook 工具及配置方法
 
+1. Home-brew
+
+   - Installation
+
+     `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
