@@ -45,4 +45,5 @@ tags:
 
 5. Hexo 常用命令
    - hexo new [layout] [title]
+   - hexo clean
    - hexo deploy
