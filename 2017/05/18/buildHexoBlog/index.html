@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Keep Learning">
 <meta property="og:description" content="最近因为一个 Hexo 的主题 NexT，由 jekyll 转到 Hexo，但是在安装过程中遇到很多问题，其中 liguanghee 的这篇 hexo 博客的神坑及本质原因 给我了很大帮助，综合整理一下遇到的问题，为后来人省些麻烦。 Hexo 与 Jekyll 区别   Jekyll Hexo     在 github 网站中生成页面 在本地生成后，上传到网站上   master 即可 两个分支">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-08-04T03:36:59.428Z">
+<meta property="og:updated_time" content="2018-08-19T04:05:08.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 新手总结">
 <meta name="twitter:description" content="最近因为一个 Hexo 的主题 NexT，由 jekyll 转到 Hexo，但是在安装过程中遇到很多问题，其中 liguanghee 的这篇 hexo 博客的神坑及本质原因 给我了很大帮助，综合整理一下遇到的问题，为后来人省些麻烦。 Hexo 与 Jekyll 区别   Jekyll Hexo     在 github 网站中生成页面 在本地生成后，上传到网站上   master 即可 两个分支">
@@ -379,12 +379,20 @@
 </table>
 <p>和 <a href="https://liguanghe.github.io/2017/05/22/blogRebuilt/" target="_blank" rel="noopener">hexo 博客的神坑及本质原因</a> 重复的内容我就不在这里 copy/paste 了，我对遇到的问题做几点说明：</p>
 <ol>
-<li>当下载 NexT 主题后，需要把主题文件夹里的 .git 删除掉，这个 .git 文件夹一般是隐藏的，你可以通过在 windows 设置显示隐藏文件夹来找到或者通过命令行 <code>ls -a</code> ，然后 rm 掉 .git 文件夹。</li>
-<li>由于 Hexo 是在本地编译，然后上传到 github pages，如果发现本地文件与 github pages 上显示的内容不一致，在部署前执行 <code>hexo clean</code> 。</li>
+<li><p>当下载 NexT 主题后，需要把主题文件夹里的 .git 删除掉，这个 .git 文件夹一般是隐藏的，你可以通过在 windows 设置显示隐藏文件夹来找到或者通过命令行 <code>ls -a</code> ，然后 rm 掉 .git 文件夹。</p>
+</li>
+<li><p>由于 Hexo 是在本地编译，然后上传到 github pages，如果发现本地文件与 github pages 上显示的内容不一致，在部署前执行 <code>hexo clean</code> 。</p>
+</li>
 <li><p>在 root 目录下的 .yml 文件中设置好如下内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: https://&lt;username&gt;.github.io</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/&lt;username&gt;/&lt;username&gt;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>所有的更新都要在 gh-pages branch 上完成。</p>
+</li>
+<li><p>Hexo 常用命令</p>
+<ul>
+<li>hexo new [layout] <title></title></li>
+<li>hexo deploy</li>
+</ul>
 </li>
 </ol>
 
