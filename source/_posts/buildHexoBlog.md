@@ -44,6 +44,5 @@ tags:
 4. 所有的更新都要在 gh-pages branch 上完成。
 
 5. Hexo 常用命令
-
-   - hexo new [layout] <title>
+   - hexo new [layout] [title]
    - hexo deploy
