@@ -20,7 +20,9 @@ tags:
 和 [hexo 博客的神坑及本质原因](https://liguanghe.github.io/2017/05/22/blogRebuilt/) 重复的内容我就不在这里 copy/paste 了，我对遇到的问题做几点说明：
 
 1. 当下载 NexT 主题后，需要把主题文件夹里的 .git 删除掉，这个 .git 文件夹一般是隐藏的，你可以通过在 windows 设置显示隐藏文件夹来找到或者通过命令行 `ls -a` ，然后 rm 掉 .git 文件夹。
+
 2. 由于 Hexo 是在本地编译，然后上传到 github pages，如果发现本地文件与 github pages 上显示的内容不一致，在部署前执行 `hexo clean` 。
+
 3. 在 root 目录下的 .yml 文件中设置好如下内容：
 
    ```
@@ -41,3 +43,7 @@ tags:
 
 4. 所有的更新都要在 gh-pages branch 上完成。
 
+5. Hexo 常用命令
+
+   - hexo new [layout] <title>
+   - hexo deploy
